@@ -1,0 +1,178 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --gremlin-tan: #f5edd9;
+  --gremlin-tan-light: #faf6ec;
+  --gremlin-tan-dark: #e6d9bb;
+  --gremlin-lime: #84cc16;
+  --gremlin-lime-light: #a3e635;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Baloo 2', sans-serif;
+  color: #4d5339;
+  overflow-x: hidden;
+  background-color: var(--gremlin-tan-light);
+}
+
+/* Modern gradient background with pattern */
+.modern-background {
+  background: linear-gradient(135deg, #f5edd9 0%, #f8f4e8 50%, #f5edd9 100%);
+  position: relative;
+}
+
+.modern-background::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2384cc16' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.7;
+  z-index: 0;
+}
+
+/* Floating circles */
+.floating-circle {
+  position: absolute;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(132, 204, 22, 0.1) 0%, rgba(163, 230, 53, 0.1) 100%);
+  backdrop-filter: blur(5px);
+  z-index: 1;
+}
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(40px);
+  z-index: 0;
+  opacity: 0.15;
+}
+
+.gremlin-bubble {
+  position: relative;
+  background-color: white;
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.07);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  z-index: 5;
+}
+
+.gremlin-bubble::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-top: 12px solid white;
+  bottom: -12px;
+  left: 30px;
+}
+
+.cloud {
+  position: absolute;
+  width: 200px;
+  height: 60px;
+  background-color: white;
+  border-radius: 100px;
+  filter: blur(3px);
+  opacity: 0.7;
+  z-index: 1;
+}
+
+.cloud::before,
+.cloud::after {
+  content: '';
+  position: absolute;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.cloud::before {
+  width: 80px;
+  height: 80px;
+  top: -30px;
+  left: 30px;
+}
+
+.cloud::after {
+  width: 100px;
+  height: 100px;
+  top: -40px;
+  right: 30px;
+}
+
+.bush {
+  position: absolute;
+  width: 80px;
+  height: 60px;
+  background-color: #84cc16;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+.bush::before,
+.bush::after {
+  content: '';
+  position: absolute;
+  background-color: #84cc16;
+  border-radius: 50%;
+}
+
+.bush::before {
+  width: 60px;
+  height: 60px;
+  top: -20px;
+  left: -10px;
+}
+
+.bush::after {
+  width: 50px;
+  height: 50px;
+  top: -10px;
+  right: -10px;
+}
+
+.btn-primary {
+  @apply bg-gremlin-lime hover:bg-gremlin-lime-light text-white font-bold py-3 px-6 rounded-full 
+  shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-xl;
+}
+
+.btn-secondary {
+  @apply bg-white hover:bg-gremlin-tan-light text-gremlin-lime hover:text-gremlin-lime-dark
+  font-bold py-3 px-6 rounded-full border-2 border-gremlin-lime
+  shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-xl;
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--gremlin-lime) var(--gremlin-tan);
+}
+
+/* For Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--gremlin-tan);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--gremlin-lime);
+  border-radius: 20px;
+  border: 3px solid var(--gremlin-tan);
+}
